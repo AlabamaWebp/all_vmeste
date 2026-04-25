@@ -1,0 +1,205 @@
+:host {
+  display: block;
+}
+
+.story-page {
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+.story-slide {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+}
+
+.story-slide__shade {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: min(58vw, 700px);
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgb(86 102 77 / 0.92), rgb(118 140 114 / 0.7) 64%, rgb(120 140 130 / 0));
+  backdrop-filter: blur(8px);
+}
+
+.story-slide__content {
+  position: relative;
+  z-index: 2;
+  width: min(62vw, 790px);
+  padding: clamp(82px, 20vh, 155px) 0 64px clamp(32px, 7.3vw, 88px);
+}
+
+.story-slide__title {
+  max-width: 790px;
+  margin: 0 0 36px;
+  font-family: "Arial Narrow", "Roboto Condensed", Arial, Helvetica, sans-serif;
+  font-size: clamp(54px, 7.6vw, 90px);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: 0;
+  text-shadow: 0 2px 18px rgb(0 0 0 / 0.16);
+}
+
+.story-slide__region {
+  margin: 0 0 22px;
+  font-size: clamp(26px, 2.7vw, 32px);
+  line-height: 1.15;
+}
+
+.story-slide__description {
+  width: min(42vw, 490px);
+  margin: 0 0 26px;
+  font-size: clamp(19px, 1.75vw, 22px);
+  line-height: 1.08;
+}
+
+.story-slide__button {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 13px;
+  padding: 7px 12px 8px;
+  color: #ffffff;
+  background: #c72b29;
+  box-shadow: 0 8px 18px rgb(68 13 11 / 0.18);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.story-slide__button:hover {
+  background: #ad2220;
+}
+
+.story-slide__button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+.story-slide__character {
+  position: absolute;
+  right: clamp(36px, 7.8vw, 96px);
+  bottom: clamp(18px, 4.6vh, 48px);
+  z-index: 1;
+  width: min(34vw, 430px);
+  height: auto;
+  filter: drop-shadow(0 14px 20px rgb(0 0 0 / 0.12));
+}
+
+.story-slide__pattern {
+  position: absolute;
+  top: 50%;
+  left: min(50vw, 620px);
+  z-index: 1;
+  width: clamp(170px, 19vw, 250px);
+  aspect-ratio: 0.72;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.story-slide__pattern::before,
+.story-slide__pattern::after,
+.story-slide__pattern span {
+  position: absolute;
+  inset: 0;
+  display: block;
+  content: "";
+  border: solid #c42d2e;
+  border-width: 0 7px 7px 0;
+  clip-path: polygon(0 0, 24% 0, 70% 50%, 24% 100%, 0 100%, 47% 50%);
+  opacity: 0.95;
+}
+
+.story-slide__pattern::before {
+  transform: scale(1.56);
+}
+
+.story-slide__pattern::after {
+  transform: translateX(18px) scale(1.15);
+  border-width: 0 3px 3px 0;
+}
+
+.story-slide__pattern span:first-child {
+  transform: translate(38px, 28px) scale(0.58);
+}
+
+.story-slide__pattern span:last-child {
+  transform: translate(56px, 82px) scale(0.42);
+  border-width: 0 4px 4px 0;
+}
+
+@media (max-width: 900px) {
+  .story-slide {
+    display: flex;
+    min-height: 100svh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .story-slide__shade {
+    width: 100%;
+    background: linear-gradient(180deg, rgb(69 91 68 / 0.9), rgb(90 120 98 / 0.7) 58%, rgb(90 120 98 / 0.2));
+    backdrop-filter: blur(6px);
+  }
+
+  .story-slide__content {
+    width: 100%;
+    padding: 52px 26px 20px;
+  }
+
+  .story-slide__title {
+    max-width: 660px;
+    margin-bottom: 24px;
+    font-size: clamp(46px, 11vw, 76px);
+  }
+
+  .story-slide__description {
+    width: min(100%, 560px);
+    font-size: 20px;
+    line-height: 1.16;
+  }
+
+  .story-slide__character {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    align-self: center;
+    width: min(76vw, 390px);
+    margin: 0 0 18px;
+  }
+
+  .story-slide__pattern {
+    top: 52%;
+    left: 84%;
+    width: 160px;
+    opacity: 0.72;
+  }
+}
+
+@media (max-width: 520px) {
+  .story-slide__content {
+    padding-inline: 20px;
+  }
+
+  .story-slide__title {
+    font-size: clamp(40px, 12vw, 58px);
+  }
+
+  .story-slide__region {
+    font-size: 24px;
+  }
+
+  .story-slide__description {
+    font-size: 18px;
+  }
+
+  .story-slide__button {
+    font-size: 18px;
+  }
+}
