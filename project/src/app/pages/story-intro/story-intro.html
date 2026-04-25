@@ -2,10 +2,12 @@
   @for (slide of slides; track slide.title) {
     <section class="story-slide" [style.background-image]="'url(' + slide.background + ')'">
       <div class="story-slide__shade" aria-hidden="true"></div>
-      <div class="story-slide__pattern" aria-hidden="true">
-        <span></span>
-        <span></span>
-      </div>
+      <svg class="story-slide__symbol" viewBox="0 0 330 760" aria-hidden="true" focusable="false">
+        <path class="story-slide__symbol-line story-slide__symbol-line--heavy" d="M10 -34 286 380 18 794" />
+        <path class="story-slide__symbol-line" d="M96 -28 287 273 223 338 302 420 230 494 290 556 230 617 142 526 208 458 144 380 210 305" />
+        <path class="story-slide__symbol-line story-slide__symbol-line--medium" d="M168 257 255 350 221 384 274 437 226 486" />
+        <path class="story-slide__symbol-line story-slide__symbol-line--medium" d="M172 506 223 452 169 392 220 338" />
+      </svg>
 
       <div class="story-slide__content">
         <p class="story-slide__title">“{{ slide.title }}”</p>
