@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 type StorySlide = {
   title: string;
@@ -16,6 +16,8 @@ type StorySlide = {
   styleUrl: './story-intro.scss',
 })
 export class StoryIntro {
+  protected activeSlideIndex = 0;
+
   protected readonly slides: StorySlide[] = [
     {
       title: 'Сереброзубая Пампалче',
@@ -28,4 +30,16 @@ export class StoryIntro {
       symbol: '/assets/story/mari-symbol.png',
     },
   ];
+
+  @HostListener('wheel', ['$event'])
+  protected onWheel(event: WheelEvent): void {
+    event.preventDefault();
+
+    if (Math.abs(event.deltaY) < 8) {
+      return;
+    }
+
+    const direction = event.deltaY > 0 ? 1 : -1;
+    this.activeSlideIndex = Math.min(Math.max(this.activeSlideIndex + direction, 0), this.slides.length);
+  }
 }
