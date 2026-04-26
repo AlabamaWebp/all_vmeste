@@ -47,23 +47,16 @@
   </div>
 
   <nav class="story-nav" aria-label="Навигация по экранам">
-    <button
-      class="story-nav__button"
-      type="button"
-      [disabled]="!canScrollUp"
-      (click)="scrollBy(-1)"
-      aria-label="Перейти к предыдущему экрану"
-    >
-      ↑
-    </button>
-    <button
-      class="story-nav__button"
-      type="button"
-      [disabled]="!canScrollDown"
-      (click)="scrollBy(1)"
-      aria-label="Перейти к следующему экрану"
-    >
-      ↓
-    </button>
+    @for (control of navControls; track control.direction) {
+      <button
+        class="story-nav__button"
+        type="button"
+        [disabled]="control.direction < 0 ? !canScrollUp : !canScrollDown"
+        (click)="scrollBy(control.direction)"
+        [attr.aria-label]="control.label"
+      >
+        {{ control.icon }}
+      </button>
+    }
   </nav>
 </main>

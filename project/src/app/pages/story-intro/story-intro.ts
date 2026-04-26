@@ -10,15 +10,30 @@ type StorySlide = {
   symbol: string;
 };
 
+type NavControl = {
+  direction: -1 | 1;
+  label: string;
+  icon: '↑' | '↓';
+};
+
 @Component({
   selector: 'app-story-intro',
   templateUrl: './story-intro.html',
   styleUrl: './story-intro.scss',
 })
 export class StoryIntro {
+  private static readonly LOCK_TIMEOUT_MS = 720;
+  private static readonly WHEEL_THRESHOLD = 8;
+  private static readonly SWIPE_THRESHOLD = 36;
+
   protected activeSlideIndex = 0;
   private isWheelLocked = false;
   private touchStartY: number | null = null;
+
+  protected readonly navControls: readonly NavControl[] = [
+    { direction: -1, label: 'Перейти к предыдущему экрану', icon: '↑' },
+    { direction: 1, label: 'Перейти к следующему экрану', icon: '↓' },
+  ];
 
   protected readonly slides: StorySlide[] = [
     {
@@ -37,7 +52,7 @@ export class StoryIntro {
   protected onWheel(event: WheelEvent): void {
     event.preventDefault();
 
-    if (this.isWheelLocked || Math.abs(event.deltaY) < 8) {
+    if (this.isWheelLocked || Math.abs(event.deltaY) < StoryIntro.WHEEL_THRESHOLD) {
       return;
     }
 
@@ -51,7 +66,7 @@ export class StoryIntro {
       return;
     }
 
-    if (event.key === 'ArrowDown' || event.key === 'PageDown' || event.key === ' ' || event.key === 'Spacebar') {
+    if (event.key === 'ArrowDown' || event.key === 'PageDown' || event.key === ' ') {
       event.preventDefault();
       this.scrollBy(1);
     }
@@ -82,7 +97,7 @@ export class StoryIntro {
     const deltaY = this.touchStartY - event.changedTouches[0].clientY;
     this.touchStartY = null;
 
-    if (Math.abs(deltaY) < 36) {
+    if (Math.abs(deltaY) < StoryIntro.SWIPE_THRESHOLD) {
       return;
     }
 
@@ -103,7 +118,7 @@ export class StoryIntro {
     this.isWheelLocked = true;
     window.setTimeout(() => {
       this.isWheelLocked = false;
-    }, 720);
+    }, StoryIntro.LOCK_TIMEOUT_MS);
   }
 
   protected get canScrollUp(): boolean {
