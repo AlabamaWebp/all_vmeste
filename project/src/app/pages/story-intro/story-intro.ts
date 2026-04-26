@@ -17,6 +17,7 @@ type StorySlide = {
 })
 export class StoryIntro {
   protected activeSlideIndex = 0;
+  private isWheelLocked = false;
 
   protected readonly slides: StorySlide[] = [
     {
@@ -35,11 +36,21 @@ export class StoryIntro {
   protected onWheel(event: WheelEvent): void {
     event.preventDefault();
 
-    if (Math.abs(event.deltaY) < 8) {
+    if (this.isWheelLocked || Math.abs(event.deltaY) < 8) {
       return;
     }
 
     const direction = event.deltaY > 0 ? 1 : -1;
-    this.activeSlideIndex = Math.min(Math.max(this.activeSlideIndex + direction, 0), this.slides.length);
+    const nextIndex = Math.min(Math.max(this.activeSlideIndex + direction, 0), this.slides.length);
+
+    if (nextIndex === this.activeSlideIndex) {
+      return;
+    }
+
+    this.activeSlideIndex = nextIndex;
+    this.isWheelLocked = true;
+    window.setTimeout(() => {
+      this.isWheelLocked = false;
+    }, 720);
   }
 }
