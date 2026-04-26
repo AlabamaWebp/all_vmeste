@@ -101,32 +101,13 @@
 
 .story-slide__symbol {
   position: absolute;
-  top: 50%;
-  left: min(50.2vw, 648px);
+  top: 0;
+  left: 28.43vw;
   z-index: 1;
-  width: clamp(220px, 19.1vw, 365px);
-  height: 112vh;
-  transform: translate(-50%, -50%);
-  overflow: visible;
+  width: 36.79vw;
+  height: 100%;
+  object-fit: fill;
   pointer-events: none;
-}
-
-.story-slide__symbol-line {
-  fill: none;
-  stroke: #c82a2c;
-  stroke-linecap: butt;
-  stroke-linejoin: miter;
-  stroke-miterlimit: 8;
-  stroke-width: 5;
-  vector-effect: non-scaling-stroke;
-}
-
-.story-slide__symbol-line--heavy {
-  stroke-width: 9;
-}
-
-.story-slide__symbol-line--medium {
-  stroke-width: 7;
 }
 
 @media (max-width: 900px) {
@@ -173,9 +154,11 @@
   }
 
   .story-slide__symbol {
-    top: 52%;
-    left: 84%;
-    width: 210px;
+    top: 9%;
+    left: auto;
+    right: -80px;
+    width: 260px;
+    height: 78%;
     opacity: 0.74;
   }
 }

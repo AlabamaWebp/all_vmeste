@@ -7,6 +7,7 @@ type StorySlide = {
   action: string;
   background: string;
   character: string;
+  symbol: string;
 };
 
 @Component({
@@ -24,6 +25,7 @@ export class StoryIntro {
       action: 'Начать игру',
       background: '/assets/story/fon1.jpg',
       character: '/assets/story/tolka.png',
+      symbol: '/assets/story/mari-symbol.png',
     },
   ];
 }
