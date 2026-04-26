@@ -56,6 +56,8 @@
 }
 
 .story-slide {
+  --split-x: 55%;
+  --symbol-cross-x: 65%;
   position: relative;
   isolation: isolate;
   min-height: max(100%, 100vh);
@@ -213,9 +215,8 @@
 
 .story-slide__visual {
   position: absolute;
-  inset: 0 auto 0 0;
+  inset: 0;
   z-index: 0;
-  width: min(63vw, 760px);
   pointer-events: none;
 }
 
@@ -225,7 +226,13 @@
   width: 100%;
   background:
     linear-gradient(90deg, rgb(105 137 154 / 0.76), rgb(140 166 177 / 0.57) 57%, rgb(177 196 205 / 0.22));
-  clip-path: polygon(0 0, 52% 0, 90% 50%, 58% 100%, 0 100%);
+  clip-path: polygon(
+    0 0,
+    calc(var(--split-x) - 29%) 0,
+    var(--split-x) 50%,
+    calc(var(--split-x) - 27.6%) 100%,
+    0 100%
+  );
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -303,15 +310,19 @@
 .story-slide__symbol {
   position: absolute;
   top: 50%;
-  left: 100%;
-  width: clamp(260px, 30vw, 438px);
-  height: auto;
-  transform: translate(-44%, -50%);
+  left: var(--split-x);
+  z-index: 3;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  transform: translate(calc(-1 * var(--symbol-cross-x)), -50%);
   object-fit: contain;
 }
 
 @media (max-width: 900px) {
   .story-slide {
+    --split-x: 84%;
+    --symbol-cross-x: 68%;
     display: flex;
     min-height: max(100%, 100vh);
     min-height: 100lvh;
@@ -361,10 +372,11 @@
 
   .story-slide__symbol {
     top: 50%;
-    left: 100%;
+    left: var(--split-x);
     width: min(56vw, 240px);
     height: auto;
-    transform: translate(-20%, -50%);
+    max-height: none;
+    transform: translate(calc(-1 * var(--symbol-cross-x)), -50%);
     opacity: 0.86;
   }
 
