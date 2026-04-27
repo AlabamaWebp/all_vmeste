@@ -29,8 +29,10 @@
 
     @for (slide of slides; track slide.title) {
       <section class="story-slide" [style.background-image]="'url(' + slide.background + ')'">
-        <div class="story-slide__shade" aria-hidden="true"></div>
-        <img class="story-slide__symbol" [src]="slide.symbol" alt="" aria-hidden="true" />
+        <div class="story-slide__visual" aria-hidden="true">
+          <div class="story-slide__shade"></div>
+          <img class="story-slide__symbol" [src]="slide.symbol" alt="" />
+        </div>
 
         <div class="story-slide__content">
           <p class="story-slide__title">"{{ slide.title }}"</p>
@@ -43,4 +45,18 @@
       </section>
     }
   </div>
+
+  <nav class="story-nav" aria-label="Навигация по экранам">
+    @for (control of navControls; track control.direction) {
+      <button
+        class="story-nav__button"
+        type="button"
+        [disabled]="control.direction < 0 ? !canScrollUp : !canScrollDown"
+        (click)="scrollBy(control.direction)"
+        [attr.aria-label]="control.label"
+      >
+        {{ control.icon }}
+      </button>
+    }
+  </nav>
 </main>
