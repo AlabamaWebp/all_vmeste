@@ -4,16 +4,28 @@
 
 .study-module--3 {
   --module-bg-position: center 56%;
-  --module-panel-width: min(48.5vw, 910px);
-  --module-panel-height: min(62.5vh, 690px);
+  --module-tag-left: 5.83vw;
+  --module-tag-top: 6.76vh;
+  --module-tag-width: 20.36vw;
+  --module-tag-height: 19.72vh;
+  --module-tag-font-size: 4.65vw;
+  --module-title-left: 56.3vw;
+  --module-title-top: 6.76vh;
+  --module-title-width: 38.64vw;
+  --module-title-height: 19.72vh;
+  --module-title-font-size: 3.95vw;
+  --module-panel-width: 47.34vw;
+  --module-panel-height: 63.43vh;
   --module-panel-left: auto;
-  --module-panel-right: clamp(34px, 7vw, 205px);
-  --module-panel-bottom: clamp(28px, 3.1vh, 50px);
-  --module-speech-left: clamp(540px, 27vw, 760px);
-  --module-speech-top: clamp(118px, 11vh, 176px);
-  --module-speech-width: clamp(390px, 23vw, 460px);
-  --module-speech-height: clamp(160px, 14.5vh, 208px);
-  --module-character-left: clamp(100px, 7.4vw, 182px);
-  --module-character-bottom: clamp(222px, 19.2vh, 298px);
-  --module-character-width: clamp(246px, 16vw, 340px);
+  --module-panel-right: 11.88vw;
+  --module-panel-bottom: 4.07vh;
+  --module-video-height: 41.95vh;
+  --module-speech-left: 28.54vw;
+  --module-speech-top: 9.17vh;
+  --module-speech-width: 23.69vw;
+  --module-speech-height: 20.56vh;
+  --module-speech-tail-left: 1.7vw;
+  --module-character-left: 5.9vw;
+  --module-character-top: 27.55vh;
+  --module-character-width: 18.25vw;
 }

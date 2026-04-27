@@ -4,9 +4,23 @@
 
 .study-module--4 {
   --module-bg-position: center 88%;
+  --module-tag-left: 5.83vw;
+  --module-tag-top: 6.85vh;
+  --module-tag-width: 20.36vw;
+  --module-tag-height: 19.54vh;
+  --module-tag-font-size: 4.65vw;
+  --module-title-left: 29.43vw;
+  --module-title-top: 6.85vh;
+  --module-title-width: 38.49vw;
+  --module-title-height: 19.54vh;
+  --module-title-font-size: 3.85vw;
   --module-speech-left: auto;
-  --module-speech-right: clamp(356px, 26vw, 540px);
-  --module-speech-top: clamp(352px, 32vh, 430px);
-  --module-speech-width: clamp(320px, 19vw, 380px);
-  --module-speech-height: clamp(150px, 13.6vh, 182px);
+  --module-speech-right: 27.45vw;
+  --module-speech-top: 30.74vh;
+  --module-speech-width: 19.48vw;
+  --module-speech-height: 16.39vh;
+  --module-speech-tail-right: 0;
+  --module-character-right: 4.9vw;
+  --module-character-top: 41.85vh;
+  --module-character-width: 20.8vw;
 }
