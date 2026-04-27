@@ -1,0 +1,10 @@
+:host {
+  display: block;
+}
+
+.study-module--4 {
+  --module-bg-position: center 88%;
+  --module-speech-left: auto;
+  --module-speech-right: clamp(520px, 28vw, 980px);
+  --module-speech-top: clamp(360px, 33vh, 430px);
+}

@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 type StorySlide = {
   title: string;
@@ -18,6 +19,7 @@ type NavControl = {
 
 @Component({
   selector: 'app-story-intro',
+  imports: [RouterLink],
   templateUrl: './story-intro.html',
   styleUrl: './story-intro.scss',
 })

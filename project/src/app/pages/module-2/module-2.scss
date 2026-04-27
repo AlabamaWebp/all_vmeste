@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+.study-module--2 {
+  --module-bg-position: center 31%;
+  --module-panel-width: min(49vw, 910px);
+  --module-panel-height: min(61vh, 680px);
+  --module-panel-left: clamp(36px, 8vw, 200px);
+  --module-panel-right: auto;
+  --module-panel-bottom: clamp(28px, 3.2vh, 48px);
+  --module-speech-left: auto;
+  --module-speech-right: clamp(42px, 2.5vw, 70px);
+  --module-speech-top: clamp(52px, 4.7vh, 76px);
+  --module-character-right: clamp(150px, 14vw, 255px);
+  --module-character-bottom: clamp(295px, 27vh, 370px);
+  --module-character-width: clamp(220px, 13vw, 305px);
+}
