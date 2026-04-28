@@ -15,18 +15,41 @@
   </section>
 
 <section class="activity-panel" aria-label="Материалы модуля">
-  <input class="video-toggle" type="checkbox" id="video-toggle">
+  <input #videoToggle class="video-toggle" type="checkbox" id="video-toggle" (change)="videoToggle.checked || pauseVideo(moduleVideo)">
 
   <div class="video-frame">
-    <label class="play-button" for="video-toggle" aria-label="Открыть видео"></label>
+    <video
+      #moduleVideo
+      class="module-video"
+      src="/assets/video/model_1.MOV"
+      [controls]="videoToggle.checked"
+      playsinline
+      preload="auto"
+      (play)="isVideoPlaying = true"
+      (pause)="isVideoPlaying = false"
+      (ended)="isVideoPlaying = false"
+    >
+      Your browser does not support video playback.
+    </video>
+
+    <button
+      class="video-click-layer"
+      [class.video-click-layer--active]="videoToggle.checked"
+      type="button"
+      aria-label="Переключить видео"
+      (click)="toggleVideoPlayback(moduleVideo, $event)"
+    ></button>
+
+    <button
+      class="play-button"
+      [class.play-button--hidden]="videoToggle.checked && isVideoPlaying"
+      type="button"
+      aria-label="Открыть видео"
+      (click)="openAndPlayVideo(videoToggle, moduleVideo, $event)"
+    ></button>
 
     <div class="video-overlay">
       <label class="close-video" for="video-toggle" aria-label="Закрыть видео">×</label>
-
-      <!-- <video class="module-video" controls>
-        <source src="\assets\video\model_1.MOV" type="video/mp4">
-        Ваш браузер не поддерживает видео.
-      </video> -->
     </div>
   </div>
 
