@@ -1,6 +1,4 @@
 <main class="study-module study-module--1">
-  <button class="study-module__back" type="button" routerLink="/">&lt; Назад</button>
-
   <section class="study-module__top">
     <div class="study-module__module-tag">1 МОДУЛЬ</div>
     <div class="study-module__title">“ЛИТЕРАТУРНЫЙ”</div>
@@ -9,13 +7,13 @@
   <section class="study-module__middle">
     <img class="study-module__character study-module__character--left" src="/assets/modules/p1.png" alt="" aria-hidden="true" />
 
-    <!-- TEXT_SLOT_MODULE_1: сюда вставляется текст диалога -->
-    <div class="study-module__speech"></div>
+    <!-- TEXT_SLOT_MODULE_1 -->
+    <div id="text-slot-module-1" class="study-module__speech" data-slot="TEXT_SLOT_MODULE_1"></div>
   </section>
 
   <section class="study-module__panel study-module__panel--right">
-    <!-- VIDEO_SLOT_MODULE_1: сюда вставляется видеоплеер -->
-    <div class="study-module__video-slot">
+    <!-- VIDEO_SLOT_MODULE_1 -->
+    <div id="video-slot-module-1" class="study-module__video-slot" data-slot="VIDEO_SLOT_MODULE_1">
       <button class="study-module__play" type="button" aria-label="Воспроизвести видео">
         <span class="study-module__play-icon"></span>
       </button>
