@@ -58,7 +58,7 @@ select {
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
   overflow: hidden;
-  font-family: 'IBM Plex Sans Condensed', 'Nimbus Sans Narrow', 'Liberation Sans Narrow', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Liberation Sans Narrow", "Arial Narrow", "Noto Sans", Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-stretch: condensed;
   line-height: 0.86;
@@ -299,75 +299,4 @@ select {
   bottom: auto;
   z-index: 4;
   width: var(--module-character-width, 20.2vw);
-}
-
-@media (max-width: 1200px) {
-  .study-module__module-tag {
-    font-size: clamp(48px, 6.1vw, 80px);
-  }
-
-  .study-module__title {
-    font-size: clamp(44px, 5.6vw, 76px);
-    white-space: normal;
-  }
-
-  .study-module__panel {
-    height: auto;
-  }
-
-  .study-module__video-slot {
-    height: clamp(240px, 30vh, 340px);
-  }
-
-  .study-module__action {
-    font-size: clamp(24px, 3.8vw, 42px);
-  }
-
-  .study-module__next {
-    font-size: clamp(42px, 6.5vw, 58px);
-  }
-}
-
-@media (max-width: 900px) {
-  .study-module {
-    overflow-y: auto;
-  }
-
-  .study-module__top {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .study-module__speech,
-  .study-module__panel,
-  .study-module__character {
-    position: relative;
-    left: auto;
-    right: auto;
-    top: auto;
-    bottom: auto;
-  }
-
-  .study-module__speech {
-    margin: 18px auto 0;
-    width: min(92vw, 520px);
-  }
-
-  .study-module__character {
-    width: min(56vw, 320px);
-    margin: 20px auto 0;
-  }
-
-  .study-module__panel {
-    width: min(94vw, 700px);
-    margin: 18px auto 22px;
-  }
-
-  .study-module--4::before {
-    height: 44vh;
-  }
-
-  .study-module__bottom-fade {
-    bottom: 44vh;
-  }
 }
