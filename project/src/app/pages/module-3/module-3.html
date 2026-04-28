@@ -1,27 +1,29 @@
 <main class="study-module study-module--3">
   <section class="study-module__top study-module__top--module-3">
-    <div class="study-module__module-tag">3 МОДУЛЬ</div>
-    <div class="study-module__title">“ГОТОВИМ ВМЕСТЕ”</div>
+    <div class="study-module__module-tag"><span>3 МОДУЛЬ</span></div>
+    <div class="study-module__title"><span>“ГОТОВИМ ВМЕСТЕ”</span></div>
   </section>
 
-  <!-- TEXT_SLOT_MODULE_3 -->
   <div id="text-slot-module-3" class="study-module__speech" data-slot="TEXT_SLOT_MODULE_3"></div>
 
   <img class="study-module__character study-module__character--left" src="/assets/modules/p3.png" alt="" aria-hidden="true" />
 
-  <section class="study-module__panel study-module__panel--right">
-    <!-- VIDEO_SLOT_MODULE_3 -->
-    <div id="video-slot-module-3" class="study-module__video-slot" data-slot="VIDEO_SLOT_MODULE_3">
-      <button class="study-module__play" type="button" aria-label="Воспроизвести видео">
-        <span class="study-module__play-icon"></span>
-      </button>
+    <section class="activity-panel" aria-label="Материалы модуля">
+    <input class="video-toggle" type="checkbox" id="video-toggle">
+
+    <div class="video-frame">
+      <label class="play-button" for="video-toggle" aria-label="Открыть видео"></label>
+
+      <div class="video-overlay">
+        <label class="close-video" for="video-toggle" aria-label="Закрыть видео">×</label>
+      </div>
     </div>
 
-    <div class="study-module__actions">
-      <button class="study-module__action" type="button">Вопросы</button>
-      <button class="study-module__action" type="button">Сообщество в VK</button>
-    </div>
+    <nav class="actions" aria-label="Разделы модуля">
+      <a class="button-link" >Вопросы</a>
+      <a class="button-link" >Сообщество в VK</a>
+    </nav>
 
-    <button class="study-module__next" type="button" routerLink="/module-4">Далее &gt;</button>
+    <a class="next-link" routerLink="/module-4">Далее</a>
   </section>
 </main>

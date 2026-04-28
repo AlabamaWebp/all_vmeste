@@ -19,8 +19,18 @@
   --module-speech-top: 33.7vh;
   --module-speech-width: 19.48vw;
   --module-speech-height: 16.39vh;
-  --module-speech-tail-right: 1.2vw;
+  --module-speech-tail-right: -0.6vw;
   --module-character-right: 4.9vw;
   --module-character-top: 44.8vh;
   --module-character-width: 21.5vw;
+}
+
+.study-module__speech::after{
+  rotate: 342deg;
+}
+.study-module__module-tag, .study-module__title{
+  span{
+      transform: scaleY(2);
+  font-size: 60px;
+  }
 }
