@@ -228,9 +228,9 @@
     linear-gradient(90deg, rgb(105 137 154 / 0.76), rgb(140 166 177 / 0.57) 57%, rgb(177 196 205 / 0.22));
   clip-path: polygon(
     0 0,
-    calc(var(--split-x) - 390px) 0,
+    calc(var(--split-x) - 425px) 0,
     var(--split-x) 50%,
-    calc(var(--split-x) - 370px) 100%,
+    calc(var(--split-x) - 415px) 100%,
     0 100%
   );
   backdrop-filter: blur(12px);
@@ -241,7 +241,7 @@
   position: relative;
   z-index: 2;
   width: min(62vw, 920px);
-  padding: clamp(150px, 23vh, 170px) 0 64px clamp(52px, 7.35vw, 142px);
+  padding: clamp(163px, 32vh, 269px) 0 96px clamp(57px, 6.35vw, 142px);
 }
 
 .story-slide__title {
