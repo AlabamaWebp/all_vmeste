@@ -1,30 +1,42 @@
 <main class="study-module study-module--1">
-  <section class="study-module__top">
-    <div class="study-module__module-tag">1 МОДУЛЬ</div>
-    <div class="study-module__title">“ЛИТЕРАТУРНЫЙ”</div>
-  </section>
 
   <section class="study-module__middle">
     <img class="study-module__character study-module__character--left" src="/assets/modules/p1.png" alt="" aria-hidden="true" />
 
-    <!-- TEXT_SLOT_MODULE_1 -->
     <div id="text-slot-module-1" class="study-module__speech" data-slot="TEXT_SLOT_MODULE_1"></div>
   </section>
 
-  <section class="study-module__panel study-module__panel--right">
-    <!-- VIDEO_SLOT_MODULE_1 -->
-    <div id="video-slot-module-1" class="study-module__video-slot" data-slot="VIDEO_SLOT_MODULE_1">
-      <button class="study-module__play" type="button" aria-label="Воспроизвести видео">
-        <span class="study-module__play-icon"></span>
-      </button>
-    </div>
-
-    <div class="study-module__actions">
-      <button class="study-module__action" type="button">Тест</button>
-      <button class="study-module__action" type="button">Практическое задание</button>
-      <button class="study-module__action" type="button">Сказка</button>
-    </div>
-
-    <button class="study-module__next" type="button" routerLink="/module-2">Далее &gt;</button>
+  <section class="module-card">
+    <h1>1 модуль</h1>
   </section>
+
+  <section class="title-card">
+    <h2>“Литературный”</h2>
+  </section>
+
+<section class="activity-panel" aria-label="Материалы модуля">
+  <input class="video-toggle" type="checkbox" id="video-toggle">
+
+  <div class="video-frame">
+    <label class="play-button" for="video-toggle" aria-label="Открыть видео"></label>
+
+    <div class="video-overlay">
+      <label class="close-video" for="video-toggle" aria-label="Закрыть видео">×</label>
+
+      <!-- <video class="module-video" controls>
+        <source src="\assets\video\model_1.MOV" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video> -->
+    </div>
+  </div>
+
+  <nav class="actions" aria-label="Разделы модуля">
+    <a class="button-link" href="#">Тест</a>
+    <a class="button-link" href="#">Практическое задание</a>
+    <a class="button-link" href="#">Сказка</a>
+  </nav>
+
+  <a class="next-link" routerLink="/module-2">Далее</a>
+</section>
+
 </main>
