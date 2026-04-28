@@ -1,16 +1,16 @@
 <main class="study-module study-module--2">
   <section class="study-module__top study-module__top--module-2">
-    <div class="study-module__module-tag">2 МОДУЛЬ</div>
-    <div class="study-module__title">“СДЕЛАЕМ ВМЕСТЕ”</div>
+    <div class="study-module__module-tag"><span>2 МОДУЛЬ</span></div>
+    <div class="study-module__title"><span>“СДЕЛАЕМ ВМЕСТЕ”</span></div>
   </section>
 
-  <!-- TEXT_SLOT_MODULE_2 -->
-  <div id="text-slot-module-2" class="study-module__speech study-module__speech--right" data-slot="TEXT_SLOT_MODULE_2"></div>
+  <div id="text-slot-module-2" class="study-module__speech study-module__speech--right" data-slot="TEXT_SLOT_MODULE_2">
+  </div>
 
-  <img class="study-module__character study-module__character--right" src="/assets/modules/p2.png" alt="" aria-hidden="true" />
+  <img class="study-module__character study-module__character--right" src="/assets/modules/p2.png" alt=""
+    aria-hidden="true" />
 
-  <section class="study-module__panel study-module__panel--left">
-    <!-- VIDEO_SLOT_MODULE_2 -->
+  <!-- <section class="study-module__panel study-module__panel--left">
     <div id="video-slot-module-2" class="study-module__video-slot" data-slot="VIDEO_SLOT_MODULE_2">
       <button class="study-module__play" type="button" aria-label="Воспроизвести видео">
         <span class="study-module__play-icon"></span>
@@ -23,5 +23,24 @@
     </div>
 
     <button class="study-module__next" type="button" routerLink="/module-3">Далее &gt;</button>
+  </section> -->
+
+  <section class="activity-panel" aria-label="Материалы модуля">
+    <input class="video-toggle" type="checkbox" id="video-toggle">
+
+    <div class="video-frame">
+      <label class="play-button" for="video-toggle" aria-label="Открыть видео"></label>
+
+      <div class="video-overlay">
+        <label class="close-video" for="video-toggle" aria-label="Закрыть видео">×</label>
+      </div>
+    </div>
+
+    <nav class="actions" aria-label="Разделы модуля">
+      <a class="button-link" >Вопросы</a>
+      <a class="button-link" >Практическое задание</a>
+    </nav>
+
+    <a class="next-link" routerLink="/module-3">Далее</a>
   </section>
 </main>

@@ -3,31 +3,31 @@
 }
 
 .study-module--1 {
-  --module-bg-position: center 0;
-  --module-tag-left: 4.58vw;
-  --module-tag-top: 6.48vh;
-  --module-tag-width: 19.38vw;
-  --module-tag-height: 19.54vh;
-  --module-tag-font-size: 4.65vw;
-  --module-title-left: 61.3vw;
-  --module-title-top: 7.41vh;
-  --module-title-width: 34.32vw;
-  --module-title-height: 19.54vh;
-  --module-title-font-size: 4.1vw;
-  --module-panel-width: 47.05vw;
-  --module-panel-height: 63.52vh;
-  --module-panel-left: auto;
-  --module-panel-right: 11.41vw;
-  --module-panel-bottom: 3.43vh;
-  --module-video-height: 41.95vh;
-  --module-speech-left: 27.97vw;
-  --module-speech-top: 16.02vh;
-  --module-speech-width: 23.6vw;
-  --module-speech-height: 17.22vh;
-  --module-speech-tail-left: 1.85vw;
-  --module-character-left: 11.1vw;
-  --module-character-top: 34.07vh;
-  --module-character-width: 21.7vw;
+--module-bg-position: center 0;
+    --module-tag-left: 4.58vw;
+    --module-tag-top: 6.48vh;
+    --module-tag-width: 19.38vw;
+    --module-tag-height: 19.54vh;
+    --module-tag-font-size: 4.65vw;
+    --module-title-left: 61.3vw;
+    --module-title-top: 7.41vh;
+    --module-title-width: 34.32vw;
+    --module-title-height: 19.54vh;
+    --module-title-font-size: 4.1vw;
+    --module-panel-width: 47.05vw;
+    --module-panel-height: 63.52vh;
+    --module-panel-left: auto;
+    --module-panel-right: 11.41vw;
+    --module-panel-bottom: 3.43vh;
+    --module-video-height: 41.95vh;
+    --module-speech-left: 27.97vw;
+    --module-speech-top: 16.02vh;
+    --module-speech-width: 23.6vw;
+    --module-speech-height: 17.22vh;
+    --module-speech-tail-left: -0.8vw;
+    --module-character-left: 8.1vw;
+    --module-character-top: 26.07vh;
+    --module-character-width: 27.7vw;
 }
 
 /* Общий блок с видео */
@@ -194,6 +194,28 @@
   transform: scale(0.9) rotate(90deg);
 }
 
+.module-card,
+.title-card,
+.activity-panel {
+  position: absolute;
+  z-index: 8;
+  border: 3px solid rgba(255, 255, 255, 0.94);
+  box-shadow: inset 0 0 70px rgba(255, 255, 255, 0.33);
+  backdrop-filter: blur(10px);
+}
+
+.activity-panel{
+    position: absolute;
+    left: var(--module-panel-left, auto);
+    right: var(--module-panel-right, auto);
+    bottom: var(--module-panel-bottom, 40px);
+    z-index: 2;
+    width: var(--module-panel-width, 47.3vw);
+    // height: var(--module-panel-height, 63.5vh);
+  height: 670px;
+
+}
+
 .actions {
   position: relative;
   z-index: 1;
@@ -206,7 +228,7 @@
 }
 
 .button-link {
-
+padding: 5px;
   height: 49px;
     left: 235.43px;
     top: 530.48px;
@@ -217,7 +239,7 @@
     color: #FFFFFF;
 
   min-height: 58px;
-  padding: 8px 21px 11px;
+  // padding: 8px 21px 11px;
   border: 2px solid rgba(255, 255, 255, 0.94);
   border-radius: 14px;
   color: #fff;
@@ -263,6 +285,7 @@ button {
 .module-card h1 {
   margin: 0;
   color: #fff;
+  transform: scaleY(2);
   font-size: 60px;
   line-height: 0.92;
   font-weight: 900;
@@ -275,6 +298,7 @@ button {
 .title-card h2 {
   color: black;
   margin: 0;
+  transform: scaleY(2);
   font-size: 60px;
   line-height: 0.92;
   font-weight: 900;
@@ -325,21 +349,6 @@ button {
   padding: 0 36px;
 }
 
-.module-card,
-.title-card,
-.activity-panel {
-  position: absolute;
-  z-index: 8;
-  border: 3px solid rgba(255, 255, 255, 0.94);
-  box-shadow: inset 0 0 70px rgba(255, 255, 255, 0.33);
-  backdrop-filter: blur(10px);
-}
-
-.activity-panel{
-  height: 670px;
-    left: 810px;
-    top: 380px;
-}
 
 .study-module{
   background-image: url(../../../../public/assets/modules/fon_1.png);
