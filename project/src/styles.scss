@@ -674,3 +674,113 @@ select {
   border-radius: 50%;
   background: #ffffff;
 }
+
+@media (min-width: 1600px) and (max-width: 2200px) {
+  .study-module {
+    background-size: max(100vw, 1920px) auto;
+  }
+
+  .study-module__module-tag,
+  .study-module__title {
+    border-radius: 42px;
+  }
+
+  .study-module__speech {
+    border-radius: 28px;
+  }
+
+  .content-modal {
+    padding: 44px;
+  }
+
+  .content-dialog {
+    width: min(980px, 78vw);
+    max-height: min(780px, calc(100vh - 96px));
+    padding: 38px 46px 42px;
+  }
+
+  .content-dialog h2 {
+    font-size: 42px;
+  }
+
+  .content-dialog p,
+  .content-list {
+    font-size: 21px;
+  }
+
+  .content-section h3,
+  .feedback-form h3,
+  .question-form h3,
+  .crossword-form h3 {
+    font-size: 26px;
+  }
+
+  .content-sections {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .feedback-form,
+  .question-form {
+    padding: 20px;
+  }
+}
+
+@media (max-height: 850px) {
+  .study-module {
+    background-size: cover;
+  }
+
+  .study-module__module-tag,
+  .study-module__title {
+    border-radius: 32px;
+  }
+
+  .study-module__module-tag span,
+  .study-module__title span {
+    font-size: 48px !important;
+    transform: scaleY(1.55) !important;
+  }
+
+  .study-module__speech {
+    border-radius: 22px;
+  }
+
+  .content-modal {
+    padding: 22px;
+  }
+
+  .content-dialog {
+    width: min(900px, 88vw);
+    max-height: calc(100vh - 44px);
+    border-radius: 22px;
+    padding: 28px 34px 32px;
+  }
+
+  .content-dialog h2 {
+    font-size: 34px;
+  }
+
+  .content-dialog p,
+  .content-list {
+    font-size: 18px;
+  }
+
+  .content-section h3,
+  .feedback-form h3,
+  .question-form h3,
+  .crossword-form h3 {
+    font-size: 23px;
+  }
+
+  .content-sections {
+    gap: 10px;
+    margin: 12px 0;
+  }
+
+  .content-section,
+  .feedback-form,
+  .question-form {
+    padding: 14px;
+  }
+}

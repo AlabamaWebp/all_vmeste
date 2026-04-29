@@ -304,9 +304,9 @@
     right: var(--module-panel-right, auto);
     bottom: var(--module-panel-bottom, 40px);
     z-index: 2;
-    width: var(--module-panel-width, 47.3vw);
+    width: clamp(820px, var(--module-panel-width, 47.3vw), 940px);
     // height: var(--module-panel-height, 63.5vh);
-  height: 670px;
+  height: min(670px, 62vh);
 
 }
 
@@ -323,7 +323,7 @@
 
 .button-link {
 padding: 5px;
-  height: 49px;
+  height: auto;
     left: 235.43px;
     top: 530.48px;
     font-family: 'Inter';
@@ -332,13 +332,13 @@ padding: 5px;
     align-items: center;
     color: #FFFFFF;
 
-  min-height: 58px;
+  min-height: clamp(52px, 5.3vh, 58px);
   // padding: 8px 21px 11px;
   border: 2px solid rgba(255, 255, 255, 0.94);
   border-radius: 14px;
   color: #fff;
   font-family: Arial, sans-serif;
-  font-size: clamp(24px, 2.05vw, 39px);
+  font-size: clamp(24px, 1.8vw, 34px);
   line-height: 1;
   background: rgba(142, 180, 44, 0.34);
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
@@ -372,6 +372,65 @@ button {
   border-radius: 14px;
   color: #213d05;
   font-family: Arial, sans-serif;
-  font-size: clamp(28px, 2.1vw, 42px);
+  font-size: clamp(28px, 1.9vw, 36px);
   line-height: 1;
+}
+
+@media (max-height: 850px) {
+  .study-module--3 {
+    --module-panel-bottom: 3.4vh;
+    --module-speech-top: 8vh;
+    --module-character-top: 25vh;
+    --module-character-width: 16vw;
+  }
+
+  .activity-panel {
+    min-width: 600px;
+    min-height: 390px;
+    border-radius: 36px;
+    padding: 3vh 2.8vw 1.8vh;
+    gap: 1.5vh;
+  }
+
+  .activity-panel {
+    width: clamp(720px, 45vw, 850px);
+    height: min(560px, 58vh);
+  }
+
+  .video-frame {
+    min-height: 220px;
+    border-radius: 22px;
+  }
+
+  .play-button {
+    width: 118px;
+    height: 118px;
+  }
+
+  .play-button::before {
+    margin-left: 10px;
+    border-top-width: 28px;
+    border-bottom-width: 28px;
+    border-left-width: 50px;
+  }
+
+  .play-button--resume {
+    width: 96px;
+    height: 96px;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+
+  .button-link {
+    min-height: 46px;
+    border-radius: 12px;
+    padding: 5px 12px;
+    font-size: clamp(21px, 1.55vw, 28px);
+  }
+
+  .next-link {
+    font-size: clamp(24px, 1.6vw, 30px);
+  }
 }
