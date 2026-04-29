@@ -43,6 +43,7 @@
     <button
       class="play-button"
       [class.play-button--hidden]="videoToggle.checked && isVideoPlaying"
+      [class.play-button--resume]="videoToggle.checked && !isVideoPlaying"
       type="button"
       aria-label="Открыть видео"
       (click)="openAndPlayVideo(videoToggle, moduleVideo, $event)"
@@ -54,12 +55,103 @@
   </div>
 
   <nav class="actions" aria-label="Разделы модуля">
-    <a class="button-link" >Тест</a>
-    <a class="button-link" >Практическое задание</a>
-    <a class="button-link" >Сказка</a>
+    <button class="button-link" type="button" (click)="openContent('test')">Тест</button>
+    <button class="button-link" type="button" (click)="openContent('practice')">Практическое задание</button>
+    <button class="button-link" type="button" (click)="openContent('story')">Сказка</button>
   </nav>
 
   <a class="next-link" routerLink="/module-2">Далее</a>
 </section>
+
+@if (activeContent; as content) {
+  <section class="content-modal" aria-modal="true" role="dialog">
+    <div class="content-dialog">
+      <button class="content-close" type="button" aria-label="Закрыть" (click)="closeContent()">×</button>
+      <h2>{{ content.title }}</h2>
+      @if (content.text) {
+        <p>{{ content.text }}</p>
+      }
+      @if (content.items.length) {
+        <ul class="content-list">
+          @for (item of content.items; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      }
+      @if (content.sections?.length) {
+        <div class="content-sections">
+          @for (section of content.sections; track section.title) {
+            <section class="content-section">
+              <h3>{{ section.title }}</h3>
+              @if (section.text) {
+                <p>{{ section.text }}</p>
+              }
+              @if (section.items.length) {
+                <ul class="content-list">
+                  @for (item of section.items; track item) {
+                    <li>{{ item }}</li>
+                  }
+                </ul>
+              }
+            </section>
+          }
+        </div>
+      }
+      @if (content.note) {
+        <p class="content-note">{{ content.note }}</p>
+      }
+      @if (content.notice && !isTestStarted) {
+        <div class="content-notice">
+          <p>{{ content.notice.text }}</p>
+          <button class="content-start" type="button" (click)="startTest()">{{ content.notice.actionLabel }}</button>
+        </div>
+      }
+      @if (content.testQuestions && isTestStarted) {
+        <form class="test-form" (submit)="submitTest($event)">
+          @for (question of content.testQuestions; track question.prompt; let questionIndex = $index) {
+            <fieldset class="test-question">
+              <legend>{{ questionIndex + 1 }}. {{ question.prompt }}</legend>
+              <div class="option-list">
+                @for (option of question.options; track option; let optionIndex = $index) {
+                  <label>
+                    <input type="radio" [name]="'question-' + questionIndex" [value]="optionIndex" required />
+                    {{ option }}
+                  </label>
+                }
+              </div>
+            </fieldset>
+          }
+          <button class="feedback-submit" type="submit">Проверить тест</button>
+          @if (testScore !== null) {
+            <p class="feedback-status">Результат: {{ testScore }} из {{ content.testQuestions.length }}. Обсудите ответы всей семьей.</p>
+          }
+        </form>
+      }
+      @if (content.feedback; as feedback) {
+        <form class="feedback-form" (submit)="submitFeedback($event)">
+          <h3>{{ feedback.title }}</h3>
+          <label>
+            Имя семьи или участника
+            <input type="text" name="name" autocomplete="name" />
+          </label>
+          <label>
+            Ответ или комментарий
+            <textarea name="message" rows="4" [placeholder]="feedback.placeholder"></textarea>
+          </label>
+          @if (feedback.withFile) {
+            <label>
+              Фото результата
+              <input type="file" name="photo" accept="image/*" />
+            </label>
+          }
+          <button class="feedback-submit" type="submit">{{ feedback.submitLabel }}</button>
+          @if (isFeedbackSent) {
+            <p class="feedback-status">Ответ сохранен. Можно закрыть окно или дополнить форму.</p>
+          }
+        </form>
+      }
+    </div>
+  </section>
+}
 
 </main>

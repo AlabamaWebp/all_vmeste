@@ -13,4 +13,76 @@
   <img class="study-module__character study-module__character--module-4" src="/assets/modules/p1.png" alt="" aria-hidden="true" />
 
   <div class="study-module__bottom-fade"></div>
+
+  <section class="activity-panel activity-panel--module-4" aria-label="Материалы модуля">
+    <nav class="actions" aria-label="Разделы модуля">
+      <button class="button-link" type="button" (click)="openContent('recipe')">Мастер-класс</button>
+      <button class="button-link" type="button" (click)="openContent('practice')">Задание</button>
+      <button class="button-link" type="button" (click)="openContent('certificate')">Сертификат</button>
+    </nav>
+  </section>
+
+  @if (activeContent; as content) {
+    <section class="content-modal" aria-modal="true" role="dialog">
+      <div class="content-dialog">
+        <button class="content-close" type="button" aria-label="Закрыть" (click)="closeContent()">×</button>
+        <h2>{{ content.title }}</h2>
+        @if (content.text) {
+          <p>{{ content.text }}</p>
+        }
+        @if (content.items.length) {
+          <ul class="content-list">
+            @for (item of content.items; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        }
+        @if (content.sections?.length) {
+          <div class="content-sections">
+            @for (section of content.sections; track section.title) {
+              <section class="content-section">
+                <h3>{{ section.title }}</h3>
+                @if (section.text) {
+                  <p>{{ section.text }}</p>
+                }
+                @if (section.items.length) {
+                  <ul class="content-list">
+                    @for (item of section.items; track item) {
+                      <li>{{ item }}</li>
+                    }
+                  </ul>
+                }
+              </section>
+            }
+          </div>
+        }
+        @if (content.note) {
+          <p class="content-note">{{ content.note }}</p>
+        }
+        @if (content.feedback; as feedback) {
+          <form class="feedback-form" (submit)="submitFeedback($event)">
+            <h3>{{ feedback.title }}</h3>
+            <label>
+              Имя семьи или участника
+              <input type="text" name="name" autocomplete="name" />
+            </label>
+            <label>
+              Ответ или комментарий
+              <textarea name="message" rows="4" [placeholder]="feedback.placeholder"></textarea>
+            </label>
+            @if (feedback.withFile) {
+              <label>
+                Фото результата
+                <input type="file" name="photo" accept="image/*" />
+              </label>
+            }
+            <button class="feedback-submit" type="submit">{{ feedback.submitLabel }}</button>
+            @if (isFeedbackSent) {
+              <p class="feedback-status">Ответ сохранен. Можно закрыть окно или дополнить форму.</p>
+            }
+          </form>
+        }
+      </div>
+    </section>
+  }
 </main>

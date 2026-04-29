@@ -22,10 +22,90 @@
     </div>
 
     <nav class="actions" aria-label="Разделы модуля">
-      <a class="button-link" >Вопросы</a>
-      <a class="button-link" >Практическое задание</a>
+      <button class="button-link" type="button" (click)="openContent('materials')">Материалы</button>
+      <button class="button-link" type="button" (click)="openContent('questions')">Вопросы</button>
+      <button class="button-link" type="button" (click)="openContent('practice')">Практическое задание</button>
     </nav>
 
     <a class="next-link" routerLink="/module-3">Далее</a>
   </section>
+
+  @if (activeContent; as content) {
+    <section class="content-modal" aria-modal="true" role="dialog">
+      <div class="content-dialog">
+        <button class="content-close" type="button" aria-label="Закрыть" (click)="closeContent()">×</button>
+        <h2>{{ content.title }}</h2>
+        @if (content.text) {
+          <p>{{ content.text }}</p>
+        }
+        @if (content.items.length) {
+          <ul class="content-list">
+            @for (item of content.items; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        }
+        @if (content.sections?.length) {
+          <div class="content-sections">
+            @for (section of content.sections; track section.title) {
+              <section class="content-section">
+                <h3>{{ section.title }}</h3>
+                @if (section.text) {
+                  <p>{{ section.text }}</p>
+                }
+                @if (section.items.length) {
+                  <ul class="content-list">
+                    @for (item of section.items; track item) {
+                      <li>{{ item }}</li>
+                    }
+                  </ul>
+                }
+              </section>
+            }
+          </div>
+        }
+        @if (content.note) {
+          <p class="content-note">{{ content.note }}</p>
+        }
+        @if (content.questionPrompts?.length) {
+          <form class="question-form" (submit)="submitQuestionForm($event)">
+            <h3>Ответы семьи</h3>
+            @for (prompt of content.questionPrompts; track prompt.label; let promptIndex = $index) {
+              <label>
+                {{ promptIndex + 1 }}. {{ prompt.label }}
+                <textarea [name]="'answer-' + promptIndex" rows="3" [placeholder]="prompt.placeholder" required></textarea>
+              </label>
+            }
+            <button class="feedback-submit" type="submit">Сохранить ответы</button>
+            @if (isQuestionFormSent) {
+              <p class="feedback-status">Ответы сохранены. Их можно использовать для обсуждения или отправки педагогу.</p>
+            }
+          </form>
+        }
+        @if (content.feedback; as feedback) {
+          <form class="feedback-form" (submit)="submitFeedback($event)">
+            <h3>{{ feedback.title }}</h3>
+            <label>
+              Имя семьи или участника
+              <input type="text" name="name" autocomplete="name" />
+            </label>
+            <label>
+              Ответ или комментарий
+              <textarea name="message" rows="4" [placeholder]="feedback.placeholder"></textarea>
+            </label>
+            @if (feedback.withFile) {
+              <label>
+                Фото результата
+                <input type="file" name="photo" accept="image/*" />
+              </label>
+            }
+            <button class="feedback-submit" type="submit">{{ feedback.submitLabel }}</button>
+            @if (isFeedbackSent) {
+              <p class="feedback-status">Ответ сохранен. Можно закрыть окно или дополнить форму.</p>
+            }
+          </form>
+        }
+      </div>
+    </section>
+  }
 </main>

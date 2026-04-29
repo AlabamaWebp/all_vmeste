@@ -194,6 +194,22 @@
   pointer-events: none;
 }
 
+.play-button--resume {
+  width: 116px;
+  height: 116px;
+  border: 2px solid rgba(255, 255, 255, 0.82);
+  background: rgba(0, 0, 0, 0.58);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+}
+
+.play-button--resume::before {
+  margin-left: 10px;
+  border-top-width: 28px;
+  border-bottom-width: 28px;
+  border-left-width: 50px;
+  border-left-color: #ffffff;
+}
+
 .video-toggle:checked~.video-frame .video-overlay {
   opacity: 1;
   visibility: visible;
